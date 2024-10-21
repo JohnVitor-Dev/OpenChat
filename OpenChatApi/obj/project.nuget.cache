@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mvv1X/vAwqE=",
+  "dgSpecHash": "533TAjLyNrw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\John\\Desktop\\Projetos\\OpenChat\\server\\OpenChatApi\\OpenChatApi.csproj",
+  "projectFilePath": "C:\\Users\\John\\Desktop\\Projetos\\OpenChat\\OpenChatApi\\OpenChatApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\John\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\8.0.10\\microsoft.aspnetcore.diagnostics.entityframeworkcore.8.0.10.nupkg.sha512",
     "C:\\Users\\John\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.10\\microsoft.entityframeworkcore.8.0.10.nupkg.sha512",

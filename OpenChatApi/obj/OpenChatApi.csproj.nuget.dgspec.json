@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\John\\Desktop\\Projetos\\OpenChat\\server\\OpenChatApi\\OpenChatApi.csproj": {}
+    "C:\\Users\\John\\Desktop\\Projetos\\OpenChat\\OpenChatApi\\OpenChatApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\John\\Desktop\\Projetos\\OpenChat\\server\\OpenChatApi\\OpenChatApi.csproj": {
+    "C:\\Users\\John\\Desktop\\Projetos\\OpenChat\\OpenChatApi\\OpenChatApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\John\\Desktop\\Projetos\\OpenChat\\server\\OpenChatApi\\OpenChatApi.csproj",
+        "projectUniqueName": "C:\\Users\\John\\Desktop\\Projetos\\OpenChat\\OpenChatApi\\OpenChatApi.csproj",
         "projectName": "OpenChatApi",
-        "projectPath": "C:\\Users\\John\\Desktop\\Projetos\\OpenChat\\server\\OpenChatApi\\OpenChatApi.csproj",
+        "projectPath": "C:\\Users\\John\\Desktop\\Projetos\\OpenChat\\OpenChatApi\\OpenChatApi.csproj",
         "packagesPath": "C:\\Users\\John\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\John\\Desktop\\Projetos\\OpenChat\\server\\OpenChatApi\\obj\\",
+        "outputPath": "C:\\Users\\John\\Desktop\\Projetos\\OpenChat\\OpenChatApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\John\\AppData\\Roaming\\NuGet\\NuGet.Config",
