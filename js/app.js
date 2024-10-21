@@ -38,5 +38,5 @@ function loadMessages() {
 }
 
 function saveMessage(nickname, message) {
-
+    let name = "John"
 }
