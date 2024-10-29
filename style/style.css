@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #222222;
 }
 
 .hidden {
@@ -14,7 +14,7 @@ body {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background: white;
+    background: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -32,6 +32,11 @@ body {
 #input-container {
     display: flex;
     justify-content: space-between;
+}
+
+#alert {
+    color: red;
+    font-size: 14px;
 }
 
 textarea {
@@ -53,4 +58,9 @@ button {
 
 button:hover {
     background: #218838;
+}
+
+#delete-btn {
+    background-color: red;
+    margin-left: 10px;
 }

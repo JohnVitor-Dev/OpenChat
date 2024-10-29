@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,8 @@
     <div id="login">
         <h2>Entre no OpenChat</h2>
         <input type="text" id="nickname" placeholder="Digite seu nickname" />
-        <button id="enter-btn" onclick="enterNickname()">Entrar</button>
+        <button id="enter-btn">Entrar</button>
+        <p id="alert"></p>
     </div>
 
     <div id="forum" class="hidden">
@@ -21,11 +22,12 @@
         <div id="messages"></div>
         <div id="input-container">
             <textarea id="message-input" placeholder="Escreva sua mensagem aqui..."></textarea>
-            <button id="send-btn" onclick="sendMessage()">Enviar</button>
+            <button id="send-btn">Enviar</button>
+            <button id="delete-btn">Deletar Tudo</button>
         </div>
     </div>
 
-    <script src="js/app.js"></script>
+    <script type="module" src="js/app.js"></script>
 
 </body>
 

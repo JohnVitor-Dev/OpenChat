@@ -1,42 +1,96 @@
-const now = new Date();
-const year = now.getFullYear();
-const month = String(now.getMonth() + 1).padStart(2, '0'); // Meses começam em 0
-const day = String(now.getDate()).padStart(2, '0');
-const hours = String(now.getHours()).padStart(2, '0');
-const minutes = String(now.getMinutes()).padStart(2, '0');
-const currentTime = `${day}-${month}-${year} ${hours}:${minutes}`;
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"
+import {
+    getDatabase,
+    ref,
+    push,
+    onValue,
+    remove
+} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js"
+
+const firebaseConfig = {
+    databaseURL: "https://openchat-db-default-rtdb.firebaseio.com/"
+}
+
+const app = initializeApp(firebaseConfig)
+const database = getDatabase(app)
+const referenceInDB = ref(database, "mensagens")
+
+const now = new Date()
+const year = formatTime(now.getFullYear())
+const month = formatTime(now.getMonth())
+const day = formatTime(now.getDay())
+const hours = formatTime(now.getHours())
+const minutes = formatTime(now.getMinutes())
+const currentTime = `${hours}:${minutes}/${day}-${month}-${year}`
+
+const enterBtn = document.getElementById('enter-btn')
+const sendBtn = document.getElementById('send-btn')
+const deleteBtn = document.getElementById('delete-btn')
+const alertComponent = document.getElementById('alert')
+const chat = document.getElementById('messages')
+const messageInput = document.getElementById('message-input')
 
 let nickname;
 
-function enterNickname() {
-    nickname = document.getElementById('nickname').value;
+function formatTime(number) {
+    return number < 10 ? '0' + number : number;
+}
+
+enterBtn.addEventListener('click', function () {
+    nickname = document.getElementById('nickname').value
     if (nickname) {
-        document.getElementById('login').style.display = 'none';
-        document.getElementById('forum').style.display = 'block';
-        loadMessages();
+        document.getElementById('login').style.display = 'none'
+        document.getElementById('forum').style.display = 'block'
+        loadMessages()
     } else {
-        alert('Por favor, insira um nickname.');
+        alertComponent.textContent = 'Por favor, insira um nickname.'
     }
-};
+})
 
-function sendMessage() {
-    const messageInput = document.getElementById('message-input');
-    const message = messageInput.value;
+sendBtn.addEventListener('click', function () {
+    const message = messageInput.value
     if (message) {
-        const messageContainer = document.createElement('div');
-        messageContainer.textContent = `${nickname} (${currentTime}): ${message}`;
-        document.getElementById('messages').appendChild(messageContainer);
-        messageInput.value = '';
-        saveMessage(nickname, message);
+        saveMessage(message)
     } else {
-        alert('Por favor, escreva uma mensagem.');
+        alert('Por favor, escreva uma mensagem.')
     }
-};
 
-function loadMessages() {
+})
 
+deleteBtn.addEventListener('click', function () {
+    if (messageInput.value === 'johnchatopen') {
+        remove(referenceInDB)
+        chat.innerHTML = ''
+    } else {
+        alert('Comando para admin!')
+    }
+
+})
+
+function loadMessages(messageLoad) {
+    let listChat = ""
+    for (let i = 0; i < messageLoad.length; i++) {
+        listChat += `
+            <div>
+                ${messageLoad[i]}
+            </div>
+        `
+    }
+    chat.innerHTML = listChat
 }
 
-function saveMessage(nickname, message) {
-    let name = "John"
+
+function saveMessage(messageSave) {
+    let messageBuild = `${nickname} - ${currentTime}: ${messageSave}`
+    push(referenceInDB, messageBuild)
+    messageInput.value = ''
 }
+
+onValue(referenceInDB, function (snapshot) {
+    const snapshotDoesExist = snapshot.exists()
+    if (snapshotDoesExist) {
+        const snapshotValues = snapshot.val()
+        const messagesInDB = Object.values(snapshotValues)
+        loadMessages(messagesInDB)
+    }
+})
