@@ -15,14 +15,6 @@ const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
 const referenceInDB = ref(database, "mensagens")
 
-const now = new Date()
-const year = formatTime(now.getFullYear())
-const month = formatTime(now.getMonth())
-const day = formatTime(now.getDay())
-const hours = formatTime(now.getHours())
-const minutes = formatTime(now.getMinutes())
-const currentTime = `${hours}:${minutes}/${day}-${month}-${year}`
-
 const enterBtn = document.getElementById('enter-btn')
 const sendBtn = document.getElementById('send-btn')
 const deleteBtn = document.getElementById('delete-btn')
@@ -81,6 +73,14 @@ function loadMessages(messageLoad) {
 
 
 function saveMessage(messageSave) {
+    const now = new Date()
+    const year = now.getFullYear()
+    const month = formatTime(now.getMonth() + 1)
+    const day = formatTime(now.getDate())
+    const hours = formatTime(now.getHours())
+    const minutes = formatTime(now.getMinutes())
+    const currentTime = `${hours}:${minutes}/${day}-${month}-${year}`
+
     let messageBuild = `${nickname} - ${currentTime}: ${messageSave}`
     push(referenceInDB, messageBuild)
     messageInput.value = ''
