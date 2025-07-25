@@ -1,4 +1,5 @@
-# OpenChat
+# OpenChat [🔴 Write | 🟢 Read]
+## 🔒 Servidor temporariamente offline para evitar abusos, estrutura do backend está exposta para estudos
 
 O **OpenChat** é um aplicativo de chat desenvolvido para estudar e experimentar as funcionalidades do **Firebase**. O objetivo é fornecer uma plataforma simples e eficiente para comunicação instantânea utilizando o firebase.
 
